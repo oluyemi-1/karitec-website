@@ -303,7 +303,217 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Contact Section */
+        /* Careers Section */
+        .careers {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .job-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(56, 217, 169, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #38d9a9, #20c997);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(56, 217, 169, 0.2);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title {
+            font-size: 1.8rem;
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-type {
+            background: linear-gradient(45deg, #38d9a9, #20c997);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .job-location {
+            color: #666;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .job-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-requirements {
+            margin-bottom: 2rem;
+        }
+
+        .job-requirements h4 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-requirements li {
+            color: #666;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #38d9a9;
+            font-weight: bold;
+        }
+
+        .apply-btn {
+            background: linear-gradient(45deg, #38d9a9, #20c997);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(56, 217, 169, 0.3);
+        }
+
+        /* Application Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal h3 {
+            color: #2c5282;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 1.2rem;
+            border: 2px dashed #38d9a9;
+            border-radius: 12px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-input-label:hover {
+            background: rgba(56, 217, 169, 0.1);
+        }
+
+        .file-selected {
+            border-color: #20c997;
+            background: rgba(56, 217, 169, 0.1);
+        }
         .contact {
             padding: 6rem 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -505,6 +715,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#careers">Careers</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -591,7 +802,169 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Careers Section -->
+    <section id="careers" class="careers">
+        <div class="container">
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="section-subtitle">Be part of an innovative team building the future of technology solutions</p>
+            
+            <div class="jobs-grid">
+                <!-- Frontend Developer Job -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Frontend Developer</h3>
+                            <div class="job-location">📍 London, UK / Remote</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">
+                        Join our dynamic team to build cutting-edge web applications using React, TypeScript, and modern frontend technologies. You'll work on exciting projects for diverse clients.
+                    </p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>3+ years experience with React.js</li>
+                            <li>Strong knowledge of TypeScript/JavaScript</li>
+                            <li>Experience with CSS frameworks (Tailwind, Bootstrap)</li>
+                            <li>Familiarity with Git and Agile methodologies</li>
+                            <li>Portfolio of previous work</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplication('Frontend Developer')">Apply Now</button>
+                </div>
+
+                <!-- Backend Developer Job -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Backend Developer</h3>
+                            <div class="job-location">📍 London, UK / Remote</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">
+                        Build robust and scalable server-side applications using Node.js, Python, and cloud technologies. Work with databases, APIs, and microservices architecture.
+                    </p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>3+ years experience with Node.js or Python</li>
+                            <li>Strong database knowledge (MongoDB, PostgreSQL)</li>
+                            <li>Experience with REST APIs and GraphQL</li>
+                            <li>Cloud platform experience (AWS, Azure, GCP)</li>
+                            <li>Understanding of DevOps practices</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplication('Backend Developer')">Apply Now</button>
+                </div>
+
+                <!-- Full-Stack Developer Job -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Full-Stack Developer</h3>
+                            <div class="job-location">📍 London, UK / Remote</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">
+                        Work across the entire development stack, from user interfaces to server architecture. Perfect for versatile developers who love variety.
+                    </p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>4+ years full-stack development experience</li>
+                            <li>Proficiency in React and Node.js</li>
+                            <li>Database design and optimization skills</li>
+                            <li>Experience with testing frameworks</li>
+                            <li>Strong problem-solving abilities</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplication('Full-Stack Developer')">Apply Now</button>
+                </div>
+
+                <!-- UI/UX Designer Job -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">UI/UX Designer</h3>
+                            <div class="job-location">📍 London, UK / Remote</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">
+                        Create beautiful, intuitive user experiences for web and mobile applications. Work closely with our development team to bring designs to life.
+                    </p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>3+ years UI/UX design experience</li>
+                            <li>Proficiency in Figma, Adobe Creative Suite</li>
+                            <li>Understanding of design systems</li>
+                            <li>Knowledge of frontend technologies (HTML/CSS)</li>
+                            <li>Strong portfolio showcasing diverse projects</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplication('UI/UX Designer')">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeApplication()">&times;</span>
+            <h3 id="modalTitle">Apply for Position</h3>
+            
+            <form name="job-application" method="POST" data-netlify="true" enctype="multipart/form-data">
+                <input type="hidden" name="position" id="positionField">
+                
+                <div class="form-group">
+                    <label for="applicantName">Full Name</label>
+                    <input type="text" id="applicantName" name="applicantName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantEmail">Email Address</label>
+                    <input type="email" id="applicantEmail" name="applicantEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantPhone">Phone Number</label>
+                    <input type="tel" id="applicantPhone" name="applicantPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Years of Experience</label>
+                    <input type="number" id="experience" name="experience" min="0" max="30" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload Your CV/Resume</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="cvFile" name="cv" accept=".pdf,.doc,.docx" required class="file-input">
+                        <label for="cvFile" class="file-input-label" id="fileLabel">
+                            📄 Click to upload your CV (PDF, DOC, DOCX)
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter / Why are you interested?</label>
+                    <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us why you're perfect for this role..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="portfolioUrl">Portfolio/LinkedIn URL (optional)</label>
+                    <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder="https://...">
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -663,15 +1036,43 @@
             }
         });
 
-        // Form submission feedback
-        const form = document.querySelector('form[name="contact"]');
-        if (form) {
-            form.addEventListener('submit', function() {
-                const button = form.querySelector('.submit-btn');
-                button.textContent = 'Sending...';
-                button.classList.add('loading');
-            });
+        // Application modal functions
+        function openApplication(position) {
+            document.getElementById('modalTitle').textContent = `Apply for ${position}`;
+            document.getElementById('positionField').value = position;
+            document.getElementById('applicationModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
+
+        function closeApplication() {
+            document.getElementById('applicationModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Reset form
+            document.querySelector('form[name="job-application"]').reset();
+            document.getElementById('fileLabel').textContent = '📄 Click to upload your CV (PDF, DOC, DOCX)';
+            document.getElementById('fileLabel').classList.remove('file-selected');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('applicationModal');
+            if (event.target === modal) {
+                closeApplication();
+            }
+        }
+
+        // File upload feedback
+        document.getElementById('cvFile').addEventListener('change', function(e) {
+            const fileLabel = document.getElementById('fileLabel');
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                fileLabel.textContent = `✅ ${fileName}`;
+                fileLabel.classList.add('file-selected');
+            } else {
+                fileLabel.textContent = '📄 Click to upload your CV (PDF, DOC, DOCX)';
+                fileLabel.classList.remove('file-selected');
+            }
+        });
 
         // Intersection Observer for animations
         const observerOptions = {
